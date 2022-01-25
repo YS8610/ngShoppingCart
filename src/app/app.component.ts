@@ -13,16 +13,16 @@ export class AppComponent {
     {name:"orange", pic:"../assets/orange.png"},
     {name:"pear", pic:"../assets/pear.png"},
     {name:"durian", pic:"../assets/durian.png"},
-    {name:"grape", pic:"../assets/grape.png"}
+    {name:"grape", pic:"../assets/grape.png"},
+    {name:"watermelon", pic:"../assets/watermelon.png"}
   ];
 
-  cart = [
-    {name:"apple",count:0},
-    {name:"orange",count:0},
-    {name:"pear",count:0},
-    {name:"durian",count:0},
-    {name:"grape",count:0}
-  ];
+  cart:{name:string, count:number}[]=[];
+  constructor(){
+     for (let i of this.inventories){
+      this.cart.push({name:i.name,count:0})
+    }
+  }
 
   onAddedInven(newItem:string){
     for (let i in this.cart){

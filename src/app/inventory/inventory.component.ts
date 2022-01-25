@@ -10,8 +10,6 @@ export class InventoryComponent implements OnInit {
   @Input() inven !: {name : string, pic : string };
   @Output() onInvenAdd = new EventEmitter<string>();
 
-
-
   constructor() { }
 
   ngOnInit(): void {
