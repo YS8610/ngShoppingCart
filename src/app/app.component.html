@@ -4,16 +4,11 @@
     <div class="col-md-6">
       <h1>Please Select</h1>
       <app-inventory *ngFor="let inventory of inventories" [inven] = "inventory" (onInvenAdd)="onAddedInven($event)"></app-inventory>
-      <!-- <p>{{apple.name}} {{apple.count}}</p>
-      <p>{{orange.name}} {{orange.count}}</p>
-      <p>{{pear.name}} {{pear.count}}</p>
-      <p>{{durian.name}} {{durian.count}}</p>
-      <p>{{grape.name}} {{grape.count}}</p> -->
     </div>
 
     <div class="col-md-6">
       <h1>My Cart</h1>
-      <app-cart *ngFor="let c of cart" [cartAdded] = "c" (removeItem)="onRemoveditem($event)" ></app-cart>
+      <app-cart (onRemove)="onRemoveditem($event)" *ngFor="let c of cart" [cartAdded] = "c"></app-cart>
     </div>
 
   </div>

@@ -18,7 +18,6 @@ export class InventoryComponent implements OnInit {
   }
 
   addItem(){
-    // console.log(this.inven.name);
     this.onInvenAdd.emit(this.inven.name);
   }
 }

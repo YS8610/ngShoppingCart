@@ -28,19 +28,17 @@ export class AppComponent {
     for (let i in this.cart){
       if (this.cart[i].name == newItem){
         this.cart[i].count++;
-        console.log(this.cart[i].name + " " + this.cart[i].count);
+        // console.log(this.cart[i].name + " " + this.cart[i].count);
       }
     }
   }
 
-  onRemoveditem(item:any){
-    console.log(item);
+  onRemoveditem(item: string){
+    // console.log(item);
+    for (let i in this.cart){
+      if (this.cart[i].name == item){
+        this.cart[i].count=0;
+      }
+    }
   }
-
-
-  apple = this.cart[0];
-  orange = this.cart[1];
-  pear = this.cart[2];
-  durian = this.cart[3];
-  grape = this.cart[4];
 }
