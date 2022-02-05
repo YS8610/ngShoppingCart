@@ -1,6 +1,7 @@
 # AngularShoppingCart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.  
+Refactor the code using service and custom filter pipe instead of using event and attribute binding to pass data between components.  
 
 ## Development server
 

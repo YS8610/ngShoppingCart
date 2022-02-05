@@ -1,7 +1,8 @@
-<div class="container" *ngIf="cartAdded.count > 0 ">
-  <div class="row item" >
-    <div class="col-md-2"><img [src]="'../../assets/'+cartAdded.name+'.png'" alt={{cartAdded.name}} width=50vw></div>
-    <div class="col-md-8">{{cartAdded.name}},   quantity: {{cartAdded.count}}</div>
-    <div class="col-md-2"><button class="btn btn-dark" (click)="removeItem()">Remove</button></div>
+<div class="container" >
+  <div class="row item" *ngFor="let item of cart |filter:1">
+    <!-- <ng-container *ngIf="item.count>=1">{{item.name}}</ng-container> -->
+    <div class="col-md-2"><img [src]="'../../assets/'+item.name+'.png'" alt={{item.name}} width=50vw></div>
+    <div class="col-md-8">{{item.name}},   quantity: {{item.count}}</div>
+    <div class="col-md-2"><button class="btn btn-dark" (click)="onRemoveditem(item.name)">Remove</button></div>
   </div>
 </div>

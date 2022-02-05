@@ -3,12 +3,12 @@
 
     <div class="col-md-6">
       <h1>Please Select</h1>
-      <app-inventory *ngFor="let inventory of inventories" [inven] = "inventory" (onInvenAdd)="onAddedInven($event)"></app-inventory>
+      <app-inventory></app-inventory>
     </div>
 
     <div class="col-md-6">
       <h1>My Cart</h1>
-      <app-cart (onRemove)="onRemoveditem($event)" *ngFor="let c of cart" [cartAdded] = "c"></app-cart>
+      <app-cart></app-cart>
     </div>
 
   </div>

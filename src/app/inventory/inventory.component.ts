@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-inventory',
@@ -7,15 +8,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class InventoryComponent implements OnInit {
 
-  @Input() inven !: {name : string, pic : string };
-  @Output() onInvenAdd = new EventEmitter<string>();
+  cart : {name:string, count:number}[] = []
 
-  constructor() { }
+  constructor(private cartSvc:CartService) { }
 
   ngOnInit(): void {
+    this.cart = this.cartSvc.cart;
   }
 
-  addItem(){
-    this.onInvenAdd.emit(this.inven.name);
+  onAddedInven(newItem:string){
+    for (let i in this.cartSvc.cart){
+      if (this.cartSvc.cart[i].name == newItem){
+        this.cartSvc.cart[i].count++;
+        // console.log(this.cart[i].name + " " + this.cart[i].count);
+      }
+    }
   }
 }

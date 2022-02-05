@@ -1,9 +1,9 @@
 <div class="container">
 
-  <div class="row item" >
-    <div class="col-md-2"><img [src]="'../'+inven.pic" alt={{inven.name}} width=50vw></div>
-    <div class="col-md-8">{{inven.name}} </div>
-    <div class="col-md-2"><button class="float-right btn btn-dark" (click) ="addItem()">Add</button></div>
+  <div class="row item" *ngFor="let item of cart">
+    <div class="col-md-2"><img [src]="'../../assets/'+item.name+'.png'" alt={{item.name}} width=50vw></div>
+    <div class="col-md-8">{{item.name}} </div>
+    <div class="col-md-2"><button class="float-right btn btn-dark" (click) ="onAddedInven(item.name)">Add</button></div>
   </div>
 
 </div>

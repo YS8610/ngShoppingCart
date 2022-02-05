@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,17 +8,20 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartSvc:CartService) { }
+
+  cart : {name:string, count:number}[] = []
 
   ngOnInit(): void {
+    this.cart = this.cartSvc.cart;
   }
 
-  @Input() cartAdded !:{name:string, count:number};
-  @Output() onRemove = new EventEmitter<string>();
-
-
-  removeItem(){
-    this.onRemove.emit(this.cartAdded.name);
-    // console.log(this.cartAdded.name + " is selected for removal")
+  onRemoveditem(item: string){
+    // console.log(item);
+    for (let i in this.cartSvc.cart){
+      if (this.cartSvc.cart[i].name == item){
+        this.cartSvc.cart[i].count=0;
+      }
+    }
   }
 }
