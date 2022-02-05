@@ -19,3 +19,5 @@ export class FilterPipe implements PipeTransform {
     return filteredValue;
   }
 }
+// ng generate pipe filter --skip-tests
+// ng g p filter --skip-tests
